@@ -19,7 +19,7 @@
 - (NSLayoutConstraint *) bottomConstraint;
 - (NSLayoutConstraint *) bottomConstraintForItem: (id) item;
 
-- (NSArray *) editConstraintsToItem: (id) item constraints: (NSArray *) constraints;
+- (NSArray *) constraintsModifiedToItem: (id) item;
 
 - (NSLayoutConstraint *) constraintForAttribute: (NSLayoutAttribute) attribute item: (id) item;
 - (NSLayoutConstraint *) constraintForAttribute: (NSLayoutAttribute) attribute;
