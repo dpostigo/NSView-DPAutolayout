@@ -7,20 +7,26 @@
 
 @implementation NSView (SuperConstraints)
 
-- (void) superConstrain: (NSLayoutAttribute) attribute constant: (CGFloat) constant {
+- (NSLayoutConstraint *) superConstrain: (NSLayoutAttribute) attribute constant: (CGFloat) constant {
     NSView *superview = self.superview;
-    [superview addConstraint: [NSLayoutConstraint constraintWithItem: self attribute: attribute relatedBy: NSLayoutRelationEqual toItem: superview attribute: attribute multiplier: 1.0 constant: constant]];
+    NSLayoutConstraint *ret = [NSLayoutConstraint constraintWithItem: self attribute: attribute relatedBy: NSLayoutRelationEqual toItem: superview attribute: attribute multiplier: 1.0 constant: constant];
+    [superview addConstraint: ret];
+    return ret;
 }
 
 
-- (void) superConstrainToItem: (id) item attribute: (NSLayoutAttribute) attribute constant: (CGFloat) constant {
+- (NSLayoutConstraint *) superConstrainToItem: (id) item attribute: (NSLayoutAttribute) attribute constant: (CGFloat) constant {
     NSView *superview = self.superview;
-    [superview addConstraint: [NSLayoutConstraint constraintWithItem: self attribute: attribute relatedBy: NSLayoutRelationEqual toItem: item attribute: attribute multiplier: 1.0 constant: constant]];
+    NSLayoutConstraint *ret = [NSLayoutConstraint constraintWithItem: self attribute: attribute relatedBy: NSLayoutRelationEqual toItem: item attribute: attribute multiplier: 1.0 constant: constant];
+    [superview addConstraint: ret];
+    return ret;
 }
 
-- (void) selfConstrain: (NSLayoutAttribute) attribute constant: (CGFloat) constant {
+- (NSLayoutConstraint *) selfConstrain: (NSLayoutAttribute) attribute constant: (CGFloat) constant {
     NSView *superview = self.superview;
-    [superview addConstraint: [NSLayoutConstraint constraintWithItem: self attribute: attribute relatedBy: NSLayoutRelationEqual toItem: nil attribute: NSLayoutAttributeNotAnAttribute multiplier: 1.0 constant: constant]];
+    NSLayoutConstraint *ret = [NSLayoutConstraint constraintWithItem: self attribute: attribute relatedBy: NSLayoutRelationEqual toItem: nil attribute: NSLayoutAttributeNotAnAttribute multiplier: 1.0 constant: constant];
+    [superview addConstraint: ret];
+    return ret;
 }
 
 //- (void) superConstrain {

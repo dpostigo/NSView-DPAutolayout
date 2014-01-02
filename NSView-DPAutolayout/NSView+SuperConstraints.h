@@ -7,7 +7,7 @@
 
 @interface NSView (SuperConstraints)
 
-- (void) superConstrain: (NSLayoutAttribute) attribute constant: (CGFloat) constant;
-- (void) superConstrainToItem: (id) item attribute: (NSLayoutAttribute) attribute constant: (CGFloat) constant;
-- (void) selfConstrain: (NSLayoutAttribute) attribute constant: (CGFloat) constant;
+- (NSLayoutConstraint *) superConstrain: (NSLayoutAttribute) attribute constant: (CGFloat) constant;
+- (NSLayoutConstraint *) superConstrainToItem: (id) item attribute: (NSLayoutAttribute) attribute constant: (CGFloat) constant;
+- (NSLayoutConstraint *) selfConstrain: (NSLayoutAttribute) attribute constant: (CGFloat) constant;
 @end
