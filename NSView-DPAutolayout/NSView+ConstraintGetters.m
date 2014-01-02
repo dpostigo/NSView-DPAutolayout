@@ -46,6 +46,22 @@
     return [self constraintForAttribute: NSLayoutAttributeBottom item: item];
 }
 
+- (NSArray *) editConstraintsToItem: (id) item constraints: (NSArray *) constraints {
+    NSMutableArray *ret = [[NSMutableArray alloc] init];
+    for (NSLayoutConstraint *constraint in constraints) {
+        if (constraint.firstItem == item) {
+            NSLayoutConstraint *newConstraint = [NSLayoutConstraint constraintWithItem: item attribute: constraint.firstAttribute relatedBy: constraint.relation toItem: constraint.secondItem attribute: constraint.secondAttribute multiplier: constraint.multiplier constant: constraint.constant];
+            [ret addObject: newConstraint];
+        }
+
+        if (constraint.secondItem == item) {
+            NSLayoutConstraint *newConstraint = [NSLayoutConstraint constraintWithItem: constraint.firstItem attribute: constraint.firstAttribute relatedBy: constraint.relation toItem: item attribute: constraint.secondAttribute multiplier: constraint.multiplier constant: constraint.constant];
+            [ret addObject: newConstraint];
+        }
+    }
+    return ret;
+}
+
 
 - (NSLayoutConstraint *) leftConstraintForItem: (id) item {
     return [self constraintForAttribute: NSLayoutAttributeLeft item: item];

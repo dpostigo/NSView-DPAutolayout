@@ -8,13 +8,20 @@
 @interface NSView (ConstraintGetters)
 
 - (NSLayoutConstraint *) leftConstraint;
-- (NSLayoutConstraint *) rightConstraint;
-- (NSLayoutConstraint *) topConstraint;
-- (NSLayoutConstraint *) bottomConstraint;
-- (NSLayoutConstraint *) constraintForAttribute: (NSLayoutAttribute) attribute item: (id) item;
-- (NSLayoutConstraint *) topConstraintForItem: (id) item;
-- (NSLayoutConstraint *) bottomConstraintForItem: (id) item;
 - (NSLayoutConstraint *) leftConstraintForItem: (id) item;
+
+- (NSLayoutConstraint *) rightConstraint;
 - (NSLayoutConstraint *) rightConstraintForItem: (id) item;
+
+- (NSLayoutConstraint *) topConstraint;
+- (NSLayoutConstraint *) topConstraintForItem: (id) item;
+
+- (NSLayoutConstraint *) bottomConstraint;
+- (NSLayoutConstraint *) bottomConstraintForItem: (id) item;
+
+- (NSArray *) editConstraintsToItem: (id) item constraints: (NSArray *) constraints;
+
+- (NSLayoutConstraint *) constraintForAttribute: (NSLayoutAttribute) attribute item: (id) item;
 - (NSLayoutConstraint *) constraintForAttribute: (NSLayoutAttribute) attribute;
+
 @end
