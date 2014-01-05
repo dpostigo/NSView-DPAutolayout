@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "NSView-DPAutolayout"
-  s.version      = "0.0.8"
+  s.version      = "0.0.9"
   s.summary      = "Cocoapod for NSLayoutConstraint utilities."
   s.homepage     = "http://dpostigo.com"
   s.license      = 'BSD'
