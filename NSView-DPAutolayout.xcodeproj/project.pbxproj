@@ -12,6 +12,12 @@
 		3323E7CD1874F1150080EFE2 /* NSView+ConstraintGetters.m in Sources */ = {isa = PBXBuildFile; fileRef = 3323E7C91874F1150080EFE2 /* NSView+ConstraintGetters.m */; };
 		3323E7CE1874F1150080EFE2 /* NSView+SuperConstraints.h in Headers */ = {isa = PBXBuildFile; fileRef = 3323E7CA1874F1150080EFE2 /* NSView+SuperConstraints.h */; };
 		3323E7CF1874F1150080EFE2 /* NSView+SuperConstraints.m in Sources */ = {isa = PBXBuildFile; fileRef = 3323E7CB1874F1150080EFE2 /* NSView+SuperConstraints.m */; };
+		F29B80850B69740372540268 /* NSView+SiblingConstraints.m in Sources */ = {isa = PBXBuildFile; fileRef = F29B8B26FBA82F613A6439CA /* NSView+SiblingConstraints.m */; };
+		F29B860A1945122A369B41F9 /* NSView+SiblingConstraints.h in Headers */ = {isa = PBXBuildFile; fileRef = F29B82DA216CCF9123735563 /* NSView+SiblingConstraints.h */; };
+		F29B8A15AF20DDF6917F49A5 /* NSView+SuperConstaintGetters.h in Headers */ = {isa = PBXBuildFile; fileRef = F29B8E5EFBAE49F31831259F /* NSView+SuperConstaintGetters.h */; };
+		F29B8A6C75678F371FFD38E8 /* NSView+ConstraintModifiers.m in Sources */ = {isa = PBXBuildFile; fileRef = F29B889480A0ED04EC9308BF /* NSView+ConstraintModifiers.m */; };
+		F29B8C0591443565B86825AD /* NSView+SuperConstaintGetters.m in Sources */ = {isa = PBXBuildFile; fileRef = F29B87CD13B70FB721E2183B /* NSView+SuperConstaintGetters.m */; };
+		F29B8D4EAA05D814FDD62FC1 /* NSView+ConstraintModifiers.h in Headers */ = {isa = PBXBuildFile; fileRef = F29B899B25073579B0E1D5B0 /* NSView+ConstraintModifiers.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +32,12 @@
 		3323E7C91874F1150080EFE2 /* NSView+ConstraintGetters.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSView+ConstraintGetters.m"; sourceTree = "<group>"; };
 		3323E7CA1874F1150080EFE2 /* NSView+SuperConstraints.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSView+SuperConstraints.h"; sourceTree = "<group>"; };
 		3323E7CB1874F1150080EFE2 /* NSView+SuperConstraints.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSView+SuperConstraints.m"; sourceTree = "<group>"; };
+		F29B82DA216CCF9123735563 /* NSView+SiblingConstraints.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSView+SiblingConstraints.h"; sourceTree = "<group>"; };
+		F29B87CD13B70FB721E2183B /* NSView+SuperConstaintGetters.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSView+SuperConstaintGetters.m"; sourceTree = "<group>"; };
+		F29B889480A0ED04EC9308BF /* NSView+ConstraintModifiers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSView+ConstraintModifiers.m"; sourceTree = "<group>"; };
+		F29B899B25073579B0E1D5B0 /* NSView+ConstraintModifiers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSView+ConstraintModifiers.h"; sourceTree = "<group>"; };
+		F29B8B26FBA82F613A6439CA /* NSView+SiblingConstraints.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSView+SiblingConstraints.m"; sourceTree = "<group>"; };
+		F29B8E5EFBAE49F31831259F /* NSView+SuperConstaintGetters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSView+SuperConstaintGetters.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +97,12 @@
 				3323E7CA1874F1150080EFE2 /* NSView+SuperConstraints.h */,
 				3323E7CB1874F1150080EFE2 /* NSView+SuperConstraints.m */,
 				3323E7A81874F0F20080EFE2 /* Supporting Files */,
+				F29B87CD13B70FB721E2183B /* NSView+SuperConstaintGetters.m */,
+				F29B8E5EFBAE49F31831259F /* NSView+SuperConstaintGetters.h */,
+				F29B889480A0ED04EC9308BF /* NSView+ConstraintModifiers.m */,
+				F29B899B25073579B0E1D5B0 /* NSView+ConstraintModifiers.h */,
+				F29B8B26FBA82F613A6439CA /* NSView+SiblingConstraints.m */,
+				F29B82DA216CCF9123735563 /* NSView+SiblingConstraints.h */,
 			);
 			path = "NSView-DPAutolayout";
 			sourceTree = "<group>";
@@ -106,6 +124,9 @@
 			files = (
 				3323E7CC1874F1150080EFE2 /* NSView+ConstraintGetters.h in Headers */,
 				3323E7CE1874F1150080EFE2 /* NSView+SuperConstraints.h in Headers */,
+				F29B8A15AF20DDF6917F49A5 /* NSView+SuperConstaintGetters.h in Headers */,
+				F29B8D4EAA05D814FDD62FC1 /* NSView+ConstraintModifiers.h in Headers */,
+				F29B860A1945122A369B41F9 /* NSView+SiblingConstraints.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -162,6 +183,9 @@
 			files = (
 				3323E7CF1874F1150080EFE2 /* NSView+SuperConstraints.m in Sources */,
 				3323E7CD1874F1150080EFE2 /* NSView+ConstraintGetters.m in Sources */,
+				F29B8C0591443565B86825AD /* NSView+SuperConstaintGetters.m in Sources */,
+				F29B8A6C75678F371FFD38E8 /* NSView+ConstraintModifiers.m in Sources */,
+				F29B80850B69740372540268 /* NSView+SiblingConstraints.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

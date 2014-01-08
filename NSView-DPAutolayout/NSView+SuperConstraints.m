@@ -4,14 +4,67 @@
 //
 
 #import "NSView+SuperConstraints.h"
+#import "NSView+SuperConstaintGetters.h"
 
 @implementation NSView (SuperConstraints)
 
 - (NSLayoutConstraint *) superConstrain: (NSLayoutAttribute) attribute constant: (CGFloat) constant {
-    NSView *superview = self.superview;
-    NSLayoutConstraint *ret = [NSLayoutConstraint constraintWithItem: self attribute: attribute relatedBy: NSLayoutRelationEqual toItem: superview attribute: attribute multiplier: 1.0 constant: constant];
-    [superview addConstraint: ret];
+    NSLayoutConstraint *ret = nil;
+    if (self.superview) {
+        ret = [NSLayoutConstraint constraintWithItem: self attribute: attribute relatedBy: NSLayoutRelationEqual toItem: [self superview] attribute: attribute multiplier: 1.0 constant: constant];
+        [self.superview addConstraint: ret];
+    }
     return ret;
+}
+
+- (NSLayoutConstraint *) updateSuperConstraint: (NSLayoutAttribute) attribute offset: (CGFloat) offset {
+    NSLayoutConstraint *ret = [self superConstraintForAttribute: attribute];
+    if (ret == nil) {
+        ret = [self superConstrain: attribute constant: offset];
+    }
+    ret.constant = offset;
+    return ret;
+}
+
+
+
+#pragma mark Edges
+
+- (NSArray *) superConstrain: (CGFloat) constant {
+    NSMutableArray *ret = [[NSMutableArray alloc] init];
+    [ret addObjectsFromArray: [self superConstrainEdgesH: constant]];
+    [ret addObjectsFromArray: [self superConstrainEdgesV: constant]];
+    return ret;
+}
+
+- (NSArray *) superConstrainEdgesH {
+    return [self superConstrainEdgesH: 0];
+}
+
+- (NSArray *) superConstrainEdgesH: (CGFloat) constant {
+    NSMutableArray *ret = [[NSMutableArray alloc] init];
+    [ret addObject: [self superConstrain: NSLayoutAttributeLeading constant: constant]];
+    [ret addObject: [self superConstrain: NSLayoutAttributeTrailing constant: constant]];
+    return ret;
+}
+
+
+- (NSArray *) superConstrainEdgesV {
+    return [self superConstrainEdgesV: 0];
+}
+
+- (NSArray *) superConstrainEdgesV: (CGFloat) constant {
+    NSMutableArray *ret = [[NSMutableArray alloc] init];
+    [ret addObject: [self superConstrain: NSLayoutAttributeTop constant: constant]];
+    [ret addObject: [self superConstrain: NSLayoutAttributeBottom constant: constant]];
+    return ret;
+}
+
+
+#pragma mark Super constrain explicit edges
+
+- (NSLayoutConstraint *) superConstrainLeading: (CGFloat) constant {
+    return [self superConstrain: NSLayoutAttributeLeading constant: constant];
 }
 
 

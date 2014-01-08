@@ -11,6 +11,10 @@
     return [self constraintForAttribute: NSLayoutAttributeLeft];
 }
 
+- (NSLayoutConstraint *) leftConstraintForItem: (id) item {
+    return [self constraintForAttribute: NSLayoutAttributeLeft item: item];
+}
+
 - (NSLayoutConstraint *) rightConstraint {
     return [self constraintForAttribute: NSLayoutAttributeRight];
 }
@@ -19,26 +23,9 @@
     return [self constraintForAttribute: NSLayoutAttributeTop];
 }
 
+
 - (NSLayoutConstraint *) bottomConstraint {
     return [self constraintForAttribute: NSLayoutAttributeBottom];
-}
-
-- (NSLayoutConstraint *) constraintForAttribute: (NSLayoutAttribute) attribute item: (id) item {
-    NSLayoutConstraint *ret = nil;
-    NSArray *constraints = self.constraints;
-
-    for (NSLayoutConstraint *constraint in constraints) {
-        if (constraint.firstAttribute == attribute && constraint.secondAttribute == attribute && constraint.firstItem == item) {
-            ret = constraint;
-            break;
-        }
-    }
-    return ret;
-}
-
-
-- (NSLayoutConstraint *) topConstraintForItem: (id) item {
-    return [self constraintForAttribute: NSLayoutAttributeTop item: item];
 }
 
 
@@ -46,32 +33,10 @@
     return [self constraintForAttribute: NSLayoutAttributeBottom item: item];
 }
 
-- (NSArray *) constraintsModifiedToItem: (id) item {
-    return [self constraintsModifiedToItem: item constraints: [NSArray arrayWithArray: self.constraints]];
+- (NSLayoutConstraint *) topConstraintForItem: (id) item {
+    return [self constraintForAttribute: NSLayoutAttributeTop item: item];
 }
 
-
-- (NSArray *) constraintsModifiedToItem: (id) item constraints: (NSArray *) constraints {
-    NSMutableArray *ret = [[NSMutableArray alloc] init];
-
-    for (NSLayoutConstraint *constraint in constraints) {
-        if (constraint.firstItem == self) {
-            NSLayoutConstraint *newConstraint = [NSLayoutConstraint constraintWithItem: item attribute: constraint.firstAttribute relatedBy: constraint.relation toItem: constraint.secondItem attribute: constraint.secondAttribute multiplier: constraint.multiplier constant: constraint.constant];
-            [ret addObject: newConstraint];
-        } else if (constraint.secondItem == self) {
-            NSLayoutConstraint *newConstraint = [NSLayoutConstraint constraintWithItem: constraint.firstItem attribute: constraint.firstAttribute relatedBy: constraint.relation toItem: item attribute: constraint.secondAttribute multiplier: constraint.multiplier constant: constraint.constant];
-            [ret addObject: newConstraint];
-        } else {
-            [ret addObject: constraint];
-        }
-    }
-    return ret;
-}
-
-
-- (NSLayoutConstraint *) leftConstraintForItem: (id) item {
-    return [self constraintForAttribute: NSLayoutAttributeLeft item: item];
-}
 
 
 - (NSLayoutConstraint *) rightConstraintForItem: (id) item {
@@ -92,4 +57,35 @@
     }
     return ret;
 }
+
+
+- (NSLayoutConstraint *) constraintForAttribute: (NSLayoutAttribute) attribute item: (id) item {
+    return [self constraintForAttribute: attribute item: item attribute: attribute];
+}
+
+- (NSLayoutConstraint *) constraintForAttribute: (NSLayoutAttribute) attribute item: (id) item attribute: (NSLayoutAttribute) attribute2 secondItem: (id) item2 {
+    NSLayoutConstraint *ret = nil;
+    NSArray *constraints = self.constraints;
+
+    for (NSLayoutConstraint *constraint in constraints) {
+        if (constraint.firstAttribute == attribute && constraint.secondAttribute == attribute2) {
+            if ((item == nil || (item && constraint.firstItem == item)) && (item2 == nil || (item2 && constraint.secondItem == item2))) {
+                ret = constraint;
+                break;
+            }
+        }
+    }
+    return ret;
+}
+
+
+- (NSLayoutConstraint *) constraintForAttribute: (NSLayoutAttribute) attribute attribute: (NSLayoutAttribute) attribute2 {
+    return [self constraintForAttribute: attribute item: nil attribute: attribute2 secondItem: nil];
+}
+
+- (NSLayoutConstraint *) constraintForAttribute: (NSLayoutAttribute) attribute item: (id) item attribute: (NSLayoutAttribute) attribute2 {
+    return [self constraintForAttribute: attribute item: item attribute: attribute2 secondItem: nil];
+}
+
+
 @end
