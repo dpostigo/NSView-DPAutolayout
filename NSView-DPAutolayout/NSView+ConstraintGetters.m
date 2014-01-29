@@ -38,9 +38,39 @@
 }
 
 
-
 - (NSLayoutConstraint *) rightConstraintForItem: (id) item {
     return [self constraintForAttribute: NSLayoutAttributeRight item: item];
+}
+
+- (NSLayoutConstraint *) heightConstraint {
+
+    NSLog(@"%s", __PRETTY_FUNCTION__);
+    NSLayoutConstraint *ret = nil;
+    NSArray *constraints = [NSArray arrayWithArray: self.constraints];
+
+    for (NSLayoutConstraint *constraint in constraints) {
+        if (constraint.firstAttribute == NSLayoutAttributeHeight) {
+            ret = constraint;
+            break;
+        }
+    }
+    NSLog(@"ret = %@", ret);
+    return ret;
+}
+
+
+- (NSLayoutConstraint *) widthConstraint {
+
+    NSLayoutConstraint *ret = nil;
+    NSArray *constraints = self.constraints;
+
+    for (NSLayoutConstraint *constraint in constraints) {
+        if (constraint.firstAttribute == NSLayoutAttributeHeight) {
+            ret = constraint;
+            break;
+        }
+    }
+    return ret;
 }
 
 

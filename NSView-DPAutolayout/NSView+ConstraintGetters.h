@@ -19,8 +19,11 @@
 - (NSLayoutConstraint *) bottomConstraint;
 - (NSLayoutConstraint *) bottomConstraintForItem: (id) item;
 
+- (NSLayoutConstraint *) heightConstraint;
+
 - (NSLayoutConstraint *) constraintForAttribute: (NSLayoutAttribute) attribute attribute: (NSLayoutAttribute) attribute2;
 - (NSLayoutConstraint *) constraintForAttribute: (NSLayoutAttribute) attribute item: (id) item attribute: (NSLayoutAttribute) attribute2;
+
 - (NSLayoutConstraint *) constraintForAttribute: (NSLayoutAttribute) attribute item: (id) item attribute: (NSLayoutAttribute) attribute2 secondItem: (id) item2;
 
 - (NSLayoutConstraint *) constraintForAttribute: (NSLayoutAttribute) attribute item: (id) item;
