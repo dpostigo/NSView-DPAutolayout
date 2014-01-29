@@ -11,7 +11,9 @@
 - (NSLayoutConstraint *) staticConstrainHeight: (CGFloat) value;
 
 
-//- (NSLayoutConstraint *) widthConstraint;
+- (NSLayoutConstraint *) staticHeightConstraint;
+- (NSLayoutConstraint *) staticWidthConstraint;
+
 - (NSLayoutConstraint *) siblingConstrain: (NSLayoutAttribute) attribute to: (NSView *) sibling attribute: (NSLayoutAttribute) siblingAttribute offset: (CGFloat) offset;
 - (NSLayoutConstraint *) siblingConstrainTop: (NSView *) sibling attribute: (NSLayoutAttribute) siblingAttribute offset: (CGFloat) offset;
 @end
